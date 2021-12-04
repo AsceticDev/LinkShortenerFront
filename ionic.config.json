@@ -1,0 +1,7 @@
+{
+  "name": "linkshortener",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
