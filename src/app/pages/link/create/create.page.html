@@ -1,0 +1,39 @@
+
+<ion-content>
+  <div class="contentContainerDiv">
+
+    <ion-card class="createShortUrlCard">
+      <ion-card-header>
+        <ion-card-title class="createShortUrlCardTitle">Please Enter URL</ion-card-title>
+      </ion-card-header>
+      <ion-card-content class="createShortUrlCardContent">
+        <div class="formDiv">
+         
+          <form class="form" [formGroup]="ionicForm" (ngSubmit)="createShortenedLink()" novalidate>
+            <ion-input class="linkInput" formControlName="linkHash" type="url"></ion-input>
+            <ion-icon class="userIcon" size="large" name="person" slot="start"></ion-icon>
+            <ion-button class="submitButton" type="submit" size="large" color="primary">SHORTEN</ion-button>
+          </form>
+          
+        </div>
+      </ion-card-content>
+    </ion-card>
+
+    <ion-card class="wantMoreCard">
+      <ion-card-header>
+        <ion-card-title class="wantMoreCardTitle"> Want More? Try Our Apps! </ion-card-title>
+      </ion-card-header>
+
+      <ion-card-content class="wantMoreCardContent">
+
+        <div class="wantMoreCardContentDiv">
+            <p>
+              Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+            </p>
+        </div>
+
+      </ion-card-content>
+    </ion-card>
+
+  </div>
+</ion-content>
