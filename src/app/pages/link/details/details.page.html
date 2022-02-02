@@ -15,7 +15,7 @@
 
       <div class="shortlinkAction">
         <ion-input id="shortlinkHref" value={{href}} readonly></ion-input>
-        <ion-button id="copyButton" color="primary">Copy</ion-button>
+        <ion-button (click)="copyShortLink()" id="copyButton" color="primary">Copy</ion-button>
       </div>
 
     </ion-card-content>
@@ -26,7 +26,7 @@
   <ion-card class="companyListCard" *ngIf="linkDetails">
     
     <ion-card-header>
-      <ion-card-title class="cardTitle"> {{linkDetails.author.username}} </ion-card-title>
+      <ion-card-title class="cardTitle"> Long URL </ion-card-title>
     </ion-card-header>
 
     <ion-card-content class="mainCardContent">
@@ -59,5 +59,5 @@
         </ion-card-content>
 
   </ion-card>
-
+        <div class="snackbar"><p class='showToastPara'>Copied!</p></div>
 </ion-content>

@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Observable } from 'rxjs';
-import { mergeMap, tap } from 'rxjs/operators';
 import { AuthService } from 'src/app/services/auth.service';
 import { LinkService } from 'src/app/services/link.service';
+
+
 
 @Component({
   selector: 'app-details',
@@ -14,19 +14,20 @@ export class DetailsPage implements OnInit {
   public linkDetails: any;
   public linkHash: any;
   public href: any;
+  public showToast: boolean;
 
   constructor(
     public activatedRoute: ActivatedRoute,
     public linkService: LinkService,
     public router: Router,
-    public authService: AuthService
+    public authService: AuthService,
   ) { }
 
   ngOnInit() {
     //init the hash id for the link via snapshot for hashId
     this.linkHash = this.activatedRoute.snapshot.params.linkHash;
     this.href = 'http://localhost:8101' + this.router.url;
-    console.log(this.href)
+    console.log(this.href);
     this.getLinkDetails();
   }
 
@@ -40,6 +41,22 @@ export class DetailsPage implements OnInit {
       err => console.log('HTTP Error', err),
       () => console.log('HTTP request completed.')
     )
+  }
+
+  public copyShortLink = async () => {
+    // let dingus = JSON.stringify(this.href)
+    navigator.clipboard.writeText(this.href)
+    this.showCopiedToast();
+  }
+
+  public showCopiedToast() {
+    let nuts = (<HTMLElement>document.querySelector('.snackbar'));
+    // nuts.style.visibility = 'visible'
+    // nuts.style.animation = 'fadein 0.5s,fadeout .5s ease 1s 1 forwards';
+    if(nuts) {
+      nuts.classList.add('show');
+      nuts.addEventListener('animationend', () => nuts.classList.remove('show') );
+    }
   }
 
 
