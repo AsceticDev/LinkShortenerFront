@@ -6,7 +6,7 @@
 <ion-content class="mainContent">
 
   <div class="contentContainerDiv">
-    <ion-card class="shortLinkCard" *ngIf="linkDetails">
+    <ion-card class="shortLinkCard">
 
       <ion-card-header>
         <ion-card-title class="cardTitle"> ShortLink </ion-card-title>
@@ -24,7 +24,7 @@
     </ion-card>
 
 
-    <ion-card class="longUrlCard" *ngIf="linkDetails">
+    <ion-card class="longUrlCard">
       
       <ion-card-header>
         <ion-card-title class="cardTitle"> Long URL </ion-card-title>
@@ -34,7 +34,7 @@
 
 
         <div class="longUrlBoxDiv">
-          <p>{{linkDetails.link}}</p>
+          <p *ngIf="linkDetails">{{linkDetails.link}}</p>
         </div>
 
       </ion-card-content>
@@ -42,13 +42,13 @@
     </ion-card>
 
 
-    <ion-card class="prevLinksCard" *ngIf="linkDetails">
+    <ion-card class="prevLinksCard">
 
       <ion-card-header>
         <ion-card-title class="cardTitle">Recent Links </ion-card-title>
       </ion-card-header>
 
-      <ion-card-content class="mainCardContent">
+      <ion-card-content *ngIf="myLinks" class="mainCardContent">
 
         <div class="prevLinksCardContentWrapper">
           <ion-item class="prevLinkItem" *ngFor="let link of myLinks" button (click)="goToShortLink(link._linkHash)">
