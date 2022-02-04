@@ -1,3 +1,4 @@
+<app-toolbar></app-toolbar>
 
 <ion-content>
   <div class="contentContainerDiv">
@@ -7,15 +8,15 @@
         <ion-card-title class="createShortUrlCardTitle">Please Enter URL</ion-card-title>
       </ion-card-header>
       <ion-card-content class="createShortUrlCardContent">
-        <div class="formDiv">
          
           <form class="form" [formGroup]="ionicForm" (ngSubmit)="createShortenedLink()" novalidate>
-            <ion-input class="linkInput" formControlName="linkHash" type="url"></ion-input>
-            <ion-icon class="userIcon" size="large" name="person" slot="start"></ion-icon>
+            <div class="formRowDiv">
+              <ion-icon class="userIcon" size="large" name="link-outline" slot="start"></ion-icon>
+              <ion-input class="linkInput" formControlName="linkHash" type="url"></ion-input>
+            </div>
             <ion-button class="submitButton" type="submit" size="large" color="primary">SHORTEN</ion-button>
           </form>
           
-        </div>
       </ion-card-content>
     </ion-card>
 

@@ -14,7 +14,9 @@ import { TokenInterceptor } from './auth/guards/token.intercecptor';
 
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [
+    AppComponent,
+  ],
   entryComponents: [],
   imports: [
     BrowserModule, 
@@ -22,7 +24,7 @@ import { TokenInterceptor } from './auth/guards/token.intercecptor';
     AppRoutingModule,
     HttpClientModule, 
     CommonModule, 
-    FormsModule
+    FormsModule,
   ],
   providers: [
     { provide: RouteReuseStrategy, 

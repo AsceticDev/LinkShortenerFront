@@ -40,9 +40,17 @@ export class CreatePage implements OnInit {
       console.log('Decoded Token: ', decoded_token);
       this.ionicForm.value.user_id = decoded_token.sub;
       this.linkService.createShortenedLink(this.ionicForm.value).subscribe(
-        res => console.log('HTTP response', res),
+        (success:any) => {
+          console.log()
+          console.log('HTTP response', success)
+          try{
+            this.router.navigate(['/' + success.shortenedLink._linkHash]);
+          }catch(err){
+            console.log(err);
+          }
+        
+        },
         err => console.log('HTTP Error', err),
-        () => console.log('HTTP request completed.')
       );
     }
   }

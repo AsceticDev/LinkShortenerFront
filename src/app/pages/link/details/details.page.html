@@ -1,63 +1,68 @@
 
-<!-- <app-toolbar></app-toolbar> -->
+<app-toolbar></app-toolbar>
 
 
 
-<ion-content class="contentDiv">
+<ion-content class="mainContent">
 
-  <ion-card class="shortLinkCard" *ngIf="linkDetails">
+  <div class="contentContainerDiv">
+    <ion-card class="shortLinkCard" *ngIf="linkDetails">
 
-    <ion-card-header>
-      <ion-card-title class="cardTitle"> ShortLink </ion-card-title>
-    </ion-card-header>
+      <ion-card-header>
+        <ion-card-title class="cardTitle"> ShortLink </ion-card-title>
+      </ion-card-header>
 
-    <ion-card-content class="mainCardContent">
+      <ion-card-content class="mainCardContent">
 
-      <div class="shortlinkAction">
-        <ion-input id="shortlinkHref" value={{href}} readonly></ion-input>
-        <ion-button (click)="copyShortLink()" id="copyButton" color="primary">Copy</ion-button>
-      </div>
+        <div class="shortlinkAction">
+          <ion-input class="shortlinkHref" value={{href}} readonly></ion-input>
+          <ion-button (click)="copyShortLink()" class="copyButton" color="primary">Copy</ion-button>
+        </div>
 
-    </ion-card-content>
+      </ion-card-content>
 
-  </ion-card>
-
-
-  <ion-card class="companyListCard" *ngIf="linkDetails">
-    
-    <ion-card-header>
-      <ion-card-title class="cardTitle"> Long URL </ion-card-title>
-    </ion-card-header>
-
-    <ion-card-content class="mainCardContent">
+    </ion-card>
 
 
-      <ion-item class="companyInfoListItem" color="primary">
-        <ion-label>Long Url</ion-label>
-        <ion-label>{{linkDetails.link}}</ion-label>
-      </ion-item>
+    <ion-card class="longUrlCard" *ngIf="linkDetails">
+      
+      <ion-card-header>
+        <ion-card-title class="cardTitle"> Long URL </ion-card-title>
+      </ion-card-header>
 
-        </ion-card-content>
-
-  </ion-card>
+      <ion-card-content class="longUrlCardContent">
 
 
-  <ion-card class="companyListCard" *ngIf="linkDetails">
+        <div class="longUrlBoxDiv">
+          <p>{{linkDetails.link}}</p>
+        </div>
 
-    <ion-card-header>
-      <ion-card-title class="cardTitle"> Previous Links </ion-card-title>
-    </ion-card-header>
+      </ion-card-content>
 
-    <ion-card-content class="mainCardContent">
+    </ion-card>
 
-      <ion-item class="companyInfoListItem" color="primary" width="full">
-        <ion-icon slot="start" color="medium" name="book"></ion-icon>
-        <ion-label>Contact Name</ion-label>
-        <ion-label>{{linkDetails.link}}</ion-label>
-      </ion-item>
 
-        </ion-card-content>
+    <ion-card class="prevLinksCard" *ngIf="linkDetails">
 
-  </ion-card>
-        <div class="snackbar"><p class='showToastPara'>Copied!</p></div>
+      <ion-card-header>
+        <ion-card-title class="cardTitle">Recent Links </ion-card-title>
+      </ion-card-header>
+
+      <ion-card-content class="mainCardContent">
+
+        <div class="prevLinksCardContentWrapper">
+          <ion-item class="prevLinkItem" *ngFor="let link of myLinks" button (click)="goToShortLink(link._linkHash)">
+            <ion-label >
+              <!-- <ion-icon slot="start" name="aperture-outline"></ion-icon> -->
+              {{link.link}}
+            </ion-label>
+          </ion-item>
+
+        </div>
+
+      </ion-card-content>
+
+    </ion-card>
+          <div class="snackbar"><p class='showToastPara'>Copied!</p></div>
+  </div>
 </ion-content>

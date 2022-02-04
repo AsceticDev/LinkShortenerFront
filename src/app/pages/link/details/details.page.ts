@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
 import { LinkService } from 'src/app/services/link.service';
+import { UserService } from 'src/app/services/user.service';
+import jwt_decode from 'jwt-decode';
 
 
 
@@ -15,12 +17,15 @@ export class DetailsPage implements OnInit {
   public linkHash: any;
   public href: any;
   public showToast: boolean;
+  public myLinks: any;
+  public theId: any;
 
   constructor(
     public activatedRoute: ActivatedRoute,
     public linkService: LinkService,
     public router: Router,
     public authService: AuthService,
+    public userService: UserService
   ) { }
 
   ngOnInit() {
@@ -29,14 +34,30 @@ export class DetailsPage implements OnInit {
     this.href = 'http://localhost:8101' + this.router.url;
     console.log(this.href);
     this.getLinkDetails();
+    this.getUserLinks();
   }
 
   public getLinkDetails(){
     this.linkService.getShortenedLink(this.linkHash).subscribe(
       (res: any) => {
         this.linkDetails = res.shortenedLink;
-        console.log(this.linkDetails.author.username)
+        console.log(this.linkDetails)
         console.log('HTTP response', res);
+      },
+      err => console.log('HTTP Error', err),
+      () => console.log('HTTP request completed.')
+    )
+  }
+
+  public getUserLinks(){
+      const access_token = this.authService.getJwtToken();
+      const decoded_token: any = jwt_decode(access_token);
+    this.userService.getUser(decoded_token.sub).subscribe(
+      (res: any) => {
+        this.myLinks = res.user.shortenedLinks;
+        this.myLinks = this.myLinks.slice(0,5)
+        console.log('asdfasdf', this.myLinks)
+        console.log('HTTP response getUser', res);
       },
       err => console.log('HTTP Error', err),
       () => console.log('HTTP request completed.')
@@ -59,5 +80,8 @@ export class DetailsPage implements OnInit {
     }
   }
 
+  public goToShortLink(shortUrl) {
+    this.router.navigate(['/' + shortUrl]);
+  }
 
 }

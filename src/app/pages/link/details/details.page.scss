@@ -1,147 +1,81 @@
-.contentDiv {
-    // --background: beige; 
-    display: flex;
-    flex-direction: column;
-    background-size: cover;
-    background-repeat: no-repeat;
-    height: 100%;
-    align-items: center;
-    justify-content: center;
-    align-content: center;
-}
+
+@media screen and (min-width: 280px) and (max-width: 540px) {
+
+    .mainContent {
+        display: flex;
+        flex-direction: column;
+    }
 
 
-.cardTitle {
-    font-size: 32px;
-}
+    .contentContainerDiv {
+        display: flex;
+        flex-direction: column;
+        background-color: #498270 !important;
+    }
 
-.shortlinkAction {
-    display: flex;
-    flex-direction: row;
-}
+    .shortLinkCard {
+        background-color: rgb(255, 255, 255, .7);
+        display: flex;  
+        max-width: 600px;
+        flex-direction: column;
+        text-align: center;
+    }
 
-#shortlinkHref{
-    // width: 
-    --background: white;
-    font-size: 4vmin;
-    border-radius: 10px;
-    box-shadow: 1px 1px 10px rgba(0,0,0,0.5);
-    text-align: center;
-    text-overflow: ellipsis;
-    height: 50px;
-    margin: auto;
-    margin-right: 10px;
-}
+    .cardTitle {
+        font-size: 32px;
+    }
 
-#copyButton {
-    border-radius: 10px;
-    box-shadow: 1px 1px 10px rgba(0,0,0,0.5);
-    // outline: 1px solid black;
-    font-size: 20px;
-    height: 50px;
-    margin: auto;
-}
-
-.shortLinkCard {
-  background:rgba(212, 212, 212, .2);
-  outline: 1px solid black;
-  box-shadow: 0 1.5px 0 0 
-  rgba(0,0,0,0.1);
-  display: flex;  
-  max-width: 600px;
-  flex-direction: column;
-  justify-content: center;
-  align-content: center;
-  text-align: center;
-  margin: auto;
-  margin: 25px 16px;
-  box-shadow: rgb(0 0 0 / 12%) 0px 4px 16px;
-}
-
-// .showToastDiv{
-//     display:flex;
-//     justify-content: flex-end;
-//     padding-right:25px;
-//     padding-top:10px;
-//     color: blue;
-// }
+    .shortlinkAction {
+        display: flex;
+        flex-direction: row;
+    }
 
 
-.showToastPara{
-    -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
-    animation: fadein 0.5s, fadeout 0.5s 2.5s;
-}
+    .shortlinkHref{
+        height: 46px;
+        --background: white;
+        font-size: 4vmin;
+        box-shadow: 1px 1px 10px rgba(0,0,0,0.5);
+        text-align: center;
+        text-overflow: ellipsis;
+    }
+
+    .copyButton {
+        --border-radius: 0px 10px 10px 0px !important;
+        display: flex;
+        height: 46px;
+        font-size: 20px;
+        margin:auto;
+    }
 
 
 
-.cardContentDiv {
-    width: 90%;
-    max-width: 1200px;
-    margin: auto;
-}
+    .longUrlCard{
+        background-color: rgb(255, 255, 255, .7);
+    }
 
-.propertyContainer{
-    margin: auto;
-    width: 90%;
-}
+    .longUrlBoxDiv {
+        height: 60px;
+        background: white;
+        box-shadow: 1px 1px 10px rgba(0,0,0,0.5);
+        text-align: center;
+        text-overflow: ellipsis;
+        overflow: scroll;
+        margin-bottom: 20px;
+    }
 
+    .longUrlBoxDiv p{
+        font-size: 20px;
+    }
 
-.editParaButton {
-    font-size: 20px;
-    color:black;
-}
+    .prevLinksCard {
+        background-color: rgb(255, 255, 255, .7);
+    }
 
-.editIcon {
-    color:black;
-    font-size: 20px;
-}
+    .prevLinkItem {
 
-.companyConfigHeader {
-    height: 50px;
-    font-size: 18px;
-    padding-left: 5px;
-    padding-right: 5px;
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-end;
+    }
 
-}
-
-.companyConfigHeader ion-icon {
-    width: 14px;
-    height: 15px;
-}
-
-.assignNewButton {
-    float: right;
-    --border-radius: 0;
-}
-
-
-.assignNewButton {
-    border: solid 1px black;
-}
-
-.footerButtonsContainer {
-    display: flex;
-    flex-direction: column;
-}
-.footerButton {
-    --border-color: black;
-    --border-style: solid;
-    --border-width: 1px;
-    --border-radius: 5px;
-    font-size: 20px;
-    height: 50px;
-    padding: 0px 20px 0px 20px;
-}
-
-.spaceBetween {
-    height: 5px;
-}
-
-.thePadder {
-    height: 20px;
 }
 
 .snackbar {

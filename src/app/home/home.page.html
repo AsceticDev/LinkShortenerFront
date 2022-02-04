@@ -1,20 +1,22 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
+<app-toolbar></app-toolbar>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content [fullscreen]="true" class="mainContent">
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+  <div class="contentDiv">
+
+    <ion-card class="topCard">
+        <img src="./assets/images/welcome.png" id="topimagecard">
+        <ion-card-header>
+          <ion-card-title class="topCardTitle">Welcome!</ion-card-title>
+        </ion-card-header>
+
+      <ion-card-content class="topCardContent">
+        Apart from seasoning the lobster bisque, he farted on the meringue, sneezed on braised endive, 
+        and as for the cream of mushroom soup, well ...
+        You get the idea.
+      </ion-card-content>
+    </ion-card>
+
   </div>
+
 </ion-content>
