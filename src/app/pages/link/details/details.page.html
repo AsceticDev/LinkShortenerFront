@@ -42,7 +42,7 @@
     </ion-card>
 
 
-    <ion-card class="prevLinksCard">
+    <ion-card *ngIf="myLinks" class="prevLinksCard">
 
       <ion-card-header>
         <ion-card-title class="cardTitle">Recent Links </ion-card-title>
@@ -51,7 +51,7 @@
       <ion-card-content *ngIf="myLinks" class="mainCardContent">
 
         <div class="prevLinksCardContentWrapper">
-          <ion-item class="prevLinkItem" *ngFor="let link of myLinks" button (click)="goToShortLink(link._linkHash)">
+          <ion-item class="prevLinkItem" *ngFor="let link of myLinks" button [routerLink]="['/link/details/'+ link._linkHash]">
             <ion-label >
               <!-- <ion-icon slot="start" name="aperture-outline"></ion-icon> -->
               {{link.link}}

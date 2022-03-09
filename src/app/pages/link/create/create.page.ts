@@ -44,7 +44,7 @@ export class CreatePage implements OnInit {
           console.log()
           console.log('HTTP response', success)
           try{
-            this.router.navigate(['/' + success.shortenedLink._linkHash]);
+            this.router.navigate(['/link/details/' + success.shortenedLink._linkHash]);
           }catch(err){
             console.log(err);
           }

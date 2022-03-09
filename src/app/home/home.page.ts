@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -8,16 +9,13 @@ import { Component } from '@angular/core';
 export class HomePage {
 
 
-  constructor() {
-    const myDate = new Date();
-    let object = myDate;
+  constructor(
+    public router: Router,
+  ) {}
 
-    do {
-      object = Object.getPrototypeOf(object);
-      console.log(object);
-    } while (object);
 
+  goToShortener(){
+    this.router.navigate(['/link/create/']);
   }
-
 
 }

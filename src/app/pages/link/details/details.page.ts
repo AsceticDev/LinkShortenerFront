@@ -3,7 +3,10 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
 import { LinkService } from 'src/app/services/link.service';
 import { UserService } from 'src/app/services/user.service';
+import {Location} from '@angular/common';
 import jwt_decode from 'jwt-decode';
+import { Inject } from '@angular/core';
+import { DOCUMENT } from '@angular/common';
 
 
 
@@ -20,18 +23,21 @@ export class DetailsPage implements OnInit {
   public myLinks: any;
   public theId: any;
 
+
   constructor(
+    @Inject(DOCUMENT) private document: Document,
     public activatedRoute: ActivatedRoute,
+    public location: Location,
     public linkService: LinkService,
     public router: Router,
     public authService: AuthService,
-    public userService: UserService
+    public userService: UserService,
   ) { }
 
   ngOnInit() {
     //init the hash id for the link via snapshot for hashId
     this.linkHash = this.activatedRoute.snapshot.params.linkHash;
-    this.href = 'http://localhost:8101' + this.router.url;
+    this.href = this.document.location.origin + '/' + this.linkHash;
     console.log(this.href);
     this.getLinkDetails();
     this.getUserLinks();
@@ -80,8 +86,6 @@ export class DetailsPage implements OnInit {
     }
   }
 
-  public goToShortLink(shortUrl) {
-    this.router.navigate(['/' + shortUrl]);
-  }
+ 
 
 }
