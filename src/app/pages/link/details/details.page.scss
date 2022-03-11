@@ -77,17 +77,86 @@
     }
 
 
-    .prevLinksCardContentWrapper {
-    }
-
-    .prevLinkItem {
-
-    }
-
 }
 
 @media screen and (min-width: 541px) {
-    
+
+    .mainContent {
+        display: flex;
+        flex-direction: column;
+    }
+
+
+    .contentContainerDiv {
+        display: flex;
+        flex-direction: column;
+        background-color: #498270 !important;
+        // height: 100%;
+        height: 100vh;
+    }
+
+    .shortLinkCard {
+        background-color: rgb(247, 243, 243);
+        display: flex;  
+        max-width: 600px;
+        flex-direction: column;
+        text-align: center;
+        padding-bottom: 10px;
+    }
+
+    .cardTitle {
+        font-size: 32px;
+    }
+
+    .shortlinkAction {
+        display: flex;
+        flex-direction: row;
+    }
+
+
+    .shortlinkHref{
+        height: 46px;
+        --background: white;
+        font-size: 4vmin;
+        box-shadow: 1px 1px 10px rgba(0,0,0,0.5);
+        text-align: center;
+        text-overflow: ellipsis;
+    }
+
+    .copyButton {
+        --border-radius: 0px 10px 10px 0px !important;
+        display: flex;
+        height: 46px;
+        font-size: 20px;
+        margin:auto;
+    }
+
+
+
+    .longUrlCard{
+        background-color: rgb(247, 243, 243);
+        padding-bottom: 10px;
+    }
+
+    .longUrlBoxDiv {
+        height: 200px;
+        background: white;
+        box-shadow: 1px 1px 10px rgba(0,0,0,0.5);
+        text-align: center;
+        text-overflow: ellipsis;
+        overflow: scroll;
+    }
+
+    .longUrlBoxDiv p{
+        font-size: 20px;
+    }
+
+    .prevLinksCard {
+        background-color: rgb(247, 243, 243);
+        padding-bottom: 10px;
+    }
+
+
 }
 
 .snackbar {
